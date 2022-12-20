@@ -1,0 +1,57 @@
+
+@font-face {
+    font-family: 'sesion';
+    src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+
+/*Cuadro de inicio de sesión*/
+.sesion{
+    background-color: rgba(37, 37, 37, 0.822);
+    border-radius: 5px;
+    font-family:'sesion';
+
+}
+/*boton iniciar sesion y campos*/
+.btnsesion{
+    border: none;
+    border-radius: 15px;
+}
+.btnsesion:hover{
+    border-radius: 15px;
+}
+/*campos de inicio de sesión*/
+.campsesion{
+    border: none;
+    border-radius: 15px;
+    background-color:rgba(255, 255, 255, 0.863);
+}
+
+/*ancho del total*/
+.total{
+    width: 500px;
+}
+
+.fondo{
+    background-color: rgb(59, 59, 59); 
+    /* background-color: rgb(49, 49, 49);  */
+    /* background-image: url('/assets/img/fondo.png');
+    background-size:cover; */
+}
+/*Botones demas*/
+.anchobtn{
+    width: 150px;
+    margin:8px;
+}
+
+
+
+@media (min-width:1000px){
+    .sesion{
+        width: 400px;
+    }
+}
+@media (min-width:768px){
+    .sesion{
+        width: 400px;
+    }
+}
