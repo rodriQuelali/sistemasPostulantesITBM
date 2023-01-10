@@ -229,3 +229,8 @@ function capturaUsu(){
 function BorrarDatos(){
     document.getElementById('Registro-form').reset();
 }
+
+//funcion para iniciar secion de estudiantes
+const loginEstudiantes=()=>{
+
+}
