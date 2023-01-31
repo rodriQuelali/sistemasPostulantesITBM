@@ -3,7 +3,9 @@
     font-family: 'sesion';
     src: url(../assets/fonts/Montserrat-Regular.ttf);
 }
-
+body{
+    margin-bottom: 20px;
+}
 /*Cuadro de inicio de sesión*/
 .sesion{
     background-color: rgba(37, 37, 37, 0.822);

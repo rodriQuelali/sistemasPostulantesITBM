@@ -1,19 +1,56 @@
 const URL = "https://apirestitpm.itpm.edu.bo/api/index.php/";
 
 let updateRange = "";
-
-
+document.querySelector('body').onload =  ()=>{
+  if(localStorage.getItem("data") != null){
+    let dataSho = JSON.parse(localStorage.getItem("data"));
+    let nombre, pass;
+    dataSho.map(data=>{nombre = data.nombre; pass = data.password});
+    console.log(dataSho);
+    console.log(nombre, pass);
+    loginDatos(nombre, pass);
+  }
+}
 //Inicio de sesión
 const formularioLogin = document.getElementById("login-form");
-formularioLogin.addEventListener("submit", function(e){
-    e.preventDefault();
-    let data = new FormData(formularioLogin);
-    var pae = false;
+formularioLogin.addEventListener("submit",  function(e){
+    e.preventDefault();  
+    let nombre = document.getElementsByName("nombre")[0].value;
+    let pass = document.getElementsByName("password")[0].value;
     //peticion https
-    fetch(URL + "Usuario/loginUsuario", {method: 'POST', body: data})
+    loginDatos(nombre, pass);
+})
+
+//iniciar shareprefernces
+const sharePrefe = (pack)=>{
+  let password= pack.usuario.password;
+  let nombre = pack.usuario.nombre;
+  let dataName = {
+    password,nombre
+  }
+  if(localStorage.getItem("data") === null){
+    let base = [];
+    base.push(dataName);
+    localStorage.setItem("data", JSON.stringify(base));
+  }
+}
+
+//https login
+const loginDatos = (nombre, pass)=>{
+  let data = new FormData();
+  let estadoChe = document.getElementById("flexCheckDefault").checked;
+  data.append("nombre", nombre);
+  data.append("password", pass);
+  var pae = false;
+  fetch(URL + "Usuario/loginUsuario", {method: 'POST', body: data})
       .then(json=>json.json())
       .then(pack=>{
+        console.log(pack);
         if(pae === pack.err){
+          console.log(estadoChe);
+          if(estadoChe === true){
+            sharePrefe(pack);
+          }
           if(pack.usuario.privilegio === '0'){
             document.getElementById('btnNuevoPriv').style.display="block";
           }
@@ -26,12 +63,12 @@ formularioLogin.addEventListener("submit", function(e){
         } else{
           document.getElementById('errorSesion').style.display="block";
         }
-
         document.getElementById("login-form").reset();  
       });
-})
+}
 
 function cerrarSesion(){
+  localStorage.removeItem("data")
   window.location.reload();
 }
 
@@ -145,12 +182,14 @@ const filtroTotalCarreras = (id,inst) =>{
         .then(json=>json.json())
         .then(pack=>{
             let cuerpo="";
-            let tot=pack.total;
+            console.log(pack);
+            let tot=pack.total.total;
             cuerpo += `<div class="card-header" id="cabeza" style="font-size:1.5rem; font-weight: bold;">
-            ${inst}                   
+            ${inst}
             </div>
             <div class="card-body">
-                <h5 class="card-title" style="margin-bottom:20px;" id="total">${tot} Postulantes </h5> 
+                <h4 class="card-title" style="margin-bottom:20px;" id="total">${tot} Postulantes </h4> 
+                <hr><h5>Mañana: ${pack.total.dia}<hr>Noche: ${pack.total.noche}<hr>Ninguno: ${pack.total.ninguno}</h5>
             </div>
             <a href="#" class="btn btn-danger" onclick="cerrarTotal()">Cerrar</a>
             <hr>`
