@@ -4,26 +4,15 @@
 }
 
 body{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /*Cuadro de inicio de sesión*/
 
 .sesion {
-    background-color: rgba(37, 37, 37, 0.900);
-    /*border: 2px solid rgba(255, 255, 255, 0.5);*/
+    background-color: rgba(37, 37, 37, 0.822);
     border-radius: 5px;
-    font-family: 'Sweet';
-    font-size: 20px;
-}
-
-
-/*Color fondo*/
-
-.color-fondo {
-    background-color: rgba(78, 81, 102, 0.6);
-    width: 100%;
-    height: 100%;
+    font-family:'sesion';
 }
 
 
@@ -58,29 +47,22 @@ body{
 
 
 .fondo{
-  
+    /*background-color: rgb(59, 59, 59); 
+    background-color: rgb(49, 49, 49);  */
     background-image: url('../assets/img/fondoITBM.jpg');
     background-size:cover; 
-    height: 800px;
+    
 }
 
 
 /*Botones demas*/
-
-.fondo {
-    background-color: rgba(43, 46, 74, 0.6);
-    width: 100%;
-    height: 100%;
-}
 
 .anchobtn {
     width: 150px;
     margin: 8px;
 }
 
-.btn-primary {
-    background-color: rgba(18, 8, 56, 0.863);
-}
+
 
 @media (min-width:1000px) {
     .sesion {
@@ -92,8 +74,4 @@ body{
     .sesion {
         width: 400px;
     }
-}
-
-.cuerpo .color-fondo #login-form {
-    margin-top: 68px;
 }

@@ -244,10 +244,7 @@ formularioEditar.addEventListener("submit", function(e) {
 })
 
 //peticion de listar estudoantes
-
 //Total por carreras
-
-
 const filtroTotalCarreras = (id, inst) => {
         let data = new FormData();
         data.append("filtroCarrera", id);
@@ -269,20 +266,17 @@ const filtroTotalCarreras = (id, inst) => {
                 </div>
                 <a href="#" class="btn btn-danger" onclick="cerrarTotal()">Cerrar</a>
                 
-            <hr>
-
-
-            
+            <hr>          
             <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">N°</th>
-      <th scope="col">NOMBRE</th>
-      <th scope="col">TELÉFONO</th>
-    </tr>
-  </thead>
-  <tbody>
-  `;
+              <thead>
+                <tr>
+                  <th scope="col">N°</th>
+                  <th scope="col">NOMBRE</th>
+                  <th scope="col">TELÉFONO</th>
+                </tr>
+              </thead>
+            <tbody>
+              `;
             pack.cuerpo.map(list => {
                 cuerpo +=`<tr>
                         <th scope="row">${list.n}</th>
@@ -299,86 +293,59 @@ const filtroTotalCarreras = (id, inst) => {
 
                 }
 
-                //Editar rango por carreras
+//Editar rango por carreras
 
-                const editarRango = (id, nombre) => {
-                    updateRange = id;
-                    document.getElementById('cuerpoCarrera').innerHTML = `<h3>${nombre}</h3> `
+const editarRango = (id, nombre) => {
+    updateRange = id;
+    document.getElementById('cuerpoCarrera').innerHTML = `<h3>${nombre}</h3> `
+}
+
+const rangoBtn = document.getElementById('guardarRango'); rangoBtn.onclick = () => {
+    let valorRango = document.getElementById('rango').value;
+
+    console.log(updateRange, valorRango);
+
+    let data = new FormData();
+    data.append("id", updateRange);
+    data.append("rango", valorRango);
+    if (document.getElementById('rango').value != "") {
+        fetch(URL + "Grado/update", { method: 'POST', body: data })
+            .then(json => json.json())
+            .then(pack => {
+                if (pack.estado === 'ok') {
+                    document.getElementById('cuerpoCarrera').innerHTML = "";
+                    document.getElementById('rango').value = "";
+                    alert('Rango de nota actualizado');
+                } else {
+                    alert('No se editó el rango de nota');
                 }
+            });
+    } else {
+        alert('Es obligatorio llenar el campo');
+    }
+}
 
-                const rangoBtn = document.getElementById('guardarRango'); rangoBtn.onclick = () => {
-                    let valorRango = document.getElementById('rango').value;
+//Reporte por carreras
+const reporteCarreras = (id, inst) => {
+    window.location = "https://apirestitpm.itpm.edu.bo/pdf/fpdf/tutorial/reportAlumnosRepApro.php?id_carr=" + id + "&carr=" + inst;
+}
 
-                    console.log(updateRange, valorRango);
+//Reporte para alumnos
+const reporteAlumnos = (id, inst) => {
+    window.location = "https://apirestitpm.itpm.edu.bo/pdf/fpdf/tutorial/reportAlumnos.php?id_carr=" + id + "&carr=" + inst;
+}
 
-                    let data = new FormData();
-                    data.append("id", updateRange);
-                    data.append("rango", valorRango);
-                    if (document.getElementById('rango').value != "") {
-                        fetch(URL + "Grado/update", { method: 'POST', body: data })
-                            .then(json => json.json())
-                            .then(pack => {
-                                if (pack.estado === 'ok') {
-                                    document.getElementById('cuerpoCarrera').innerHTML = "";
-                                    document.getElementById('rango').value = "";
-                                    alert('Rango de nota actualizado');
-                                } else {
-                                    alert('No se editó el rango de nota');
-                                }
-                            });
-                    } else {
-                        alert('Es obligatorio llenar el campo');
-                    }
-                }
-
-                //Reporte por carreras
-                const reporteCarreras = (id, inst) => {
-                    window.location = "https://apirestitpm.itpm.edu.bo/pdf/fpdf/tutorial/reportAlumnosRepApro.php?id_carr=" + id + "&carr=" + inst;
-                }
-
-                //Reporte para alumnos
-                const reporteAlumnos = (id, inst) => {
-                    window.location = "https://apirestitpm.itpm.edu.bo/pdf/fpdf/tutorial/reportAlumnos.php?id_carr=" + id + "&carr=" + inst;
-                }
-
-
-
-                //Abre la ventana para buscar
-                function buscar() {
-                    document.getElementById('Contenido-Buscar').style.display = "block";
-                }
+//Abre la ventana para buscar
+function buscar() {
+    document.getElementById('Contenido-Buscar').style.display = "block";
+}
 //funcion para visualizar el formulario de busqueda de nota
 const formularioBusqueda=()=>{
   document.getElementById("login").style.display="none"
   document.getElementById("frmBusquedaNota").style.display="block"
   }
-  
-                //Cierra cancela la ventana para buscar
-                function cierraBuscar() {
-                    document.getElementById('Contenido-Buscar').style.display = "none";
-                    document.getElementById('resultado-Busqueda').innerHTML = "";
-                }
-
-                //Captura el correo del inicio de sesión correcto 
-                var capturar = "";
-
-                function capturaUsu() {
-                    capturar = document.getElementById('floatingInput').value;
-                    document.getElementById('nombreUsu').innerHTML = capturar;
-                }
-
-                //Limpia o resetea la ventana modal de registro de postulante nuevo
-                function BorrarDatos() {
-                    document.getElementById('Registro-form').reset();
-                }
-
-                //Limpia o resetea la ventana modal de registro de carreras
-                function BorrarDatosCarrera() {
-                    document.getElementById('Registro-form-Carrera').reset();
-                }
-
-                //funcion para iniciar secion de estudiantes
-                const loginEstudiantes = () => {
-
-                }
-
+  //funcion para visualizar el formulario de busqueda de nota
+  const formularioBusqueda2=()=>{
+    document.getElementById("login").style.display="none"
+    document.getElementById("frmBusquedaNota").style.display="block"
+    }
