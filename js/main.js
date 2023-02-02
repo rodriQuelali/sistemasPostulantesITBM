@@ -296,8 +296,4 @@ const formularioBusqueda=()=>{
   document.getElementById("login").style.display="none"
   document.getElementById("frmBusquedaNota").style.display="block"
   }
-  //funcion para visualizar el formulario de busqueda de nota
-  const formularioBusqueda2=()=>{
-    document.getElementById("login").style.display="none"
-    document.getElementById("frmBusquedaNota").style.display="block"
-    }
+ 
