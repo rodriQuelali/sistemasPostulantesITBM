@@ -26,15 +26,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://www.itboliviamar.edu.bo/"><span class="fas fa-globe-americas"></span> Página web</a>
-                    </li>
-                    <li class="nav-item" style="display: none;" id="closeSesion">
-                        <a class="nav-link" href="#" onclick="cerrarSesion()"><span class="fas fa-door-closed"></span> Cerrar sesión</a>
-                    </li>
-                    <li class="nav-item" style="display: none;" id="usuario">
-                        <a id="nombreUsu" class="nav-link disabled">usuario@gmail.com</a>
-                    </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://www.itboliviamar.edu.bo/"><span class="fas fa-globe-americas"></span> Página web</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-info"  onclick="formularioBusqueda()" >Consultar mi Nota</button>
+                </li>
+                <li class="nav-item" style="display: none;" id="closeSesion">
+                    <a class="nav-link" href="#" onclick="cerrarSesion()"><span class="fas fa-door-closed"></span> Cerrar sesión</a>
+                </li>
+                <li class="nav-item" style="display: none;" id="usuario">
+                    <a  id="nombreUsu" class="nav-link disabled">usuario@gmail.com</a>
+                </li>
+                   
+
                 </ul>
             </div>
         </div>
@@ -47,17 +53,26 @@
             <div class="container text-center sesion" id="login" style="padding-bottom:15px; display:block;">
                 <form id="login-form">
                     <img class="mb-4" src="assets/img/itbm.png" alt="" width="120" height="120">
-                    <p class="mt-5 mb-3 text-white ingresar">INGRESAR</p>
-                    <div class="form-floating mb-3">
-                        <input type="text" name="nombre" class="form-control rounded-5 campsesion" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Usuario</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" name="password" class="form-control rounded-5 campsesion" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">Contraseña</label>
-                    </div>
-                    <button class="w-100 btn btn-lg btn-primary btnsesion" type="submit">Iniciar sesión</button>
 
+                    <p class="mt-5 mb-3 text-white" >INGRESAR</p>
+                <div class="form-floating mb-3">
+                    <input type="text" name="nombre" class="form-control rounded-5 campsesion" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Usuario</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" name="password" class="form-control rounded-5 campsesion" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault" style="color: aliceblue;">
+                          Recordar Contraseña
+                        </label>
+                      </div>
+                </div>
+                    <button class="w-100 btn btn-lg btn-primary btnsesion"  type="submit">Iniciar sesión</button>
+                    
                     <p class="mt-5 mb-3 text-white">©ITBM 2023 </p>
                     <div class="card footer" style="padding-bottom:0px ;">
                         <div id="errorSesion" class="alert alert-danger alert-dismissible fade show" style="display: none;" role="alert">
@@ -67,6 +82,28 @@
                     </div>
                 </form>
             </div>
+
+
+         <!-- FORMULARIO DE BUSQUEDA DE NOTA-->
+         <div class="container text-center sesion" id="frmBusquedaNota" style="padding-bottom:15px; display:none;"> 
+            <form id="busNota-form">
+                    <img class="mb-4" src="assets/img/usu.png" alt="" width="120" height="120">
+                    <p class="mt-5 mb-3 text-white" >BUSQUEDA DE NOTA</p>
+                <div class="form-floating mb-3">
+                    <input type="text" name="txtFiltroNota" class="form-control rounded-5 campsesion" id="" placeholder="name@example.com">
+                    <label for="floatingInput">INTRODUCIR NUMERO DE CARNET</label>
+                </div>
+                    <button class="w-100 btn btn-lg btn-primary"   type="submit">CONSULTAR</button>
+                    <p class="mt-5 mb-3 text-white" >© ITBM 2022</p>
+                <div class="card footer"style="padding-bottom:0px ;">
+                    <div id="mensajeNota" class="alert alert-success alert-dismissible fade show" style="display: none;" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </form >
+        </div>
+
+      
 
 
             <!-- OPCIONES -->
@@ -99,17 +136,19 @@
                             <button type="button" onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-success dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="fas fa-print" style="padding-right:10px;"></span>Imprimir
                         </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" onclick="reporteCarreras(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS </a></li>
-                                <li><a class="dropdown-item" href="#" onclick="reporteCarreras(2,'CONSTRUCCIÓN CIVIL')">CONSTRUCCIÓN CIVIL </a></li>
-                                <li><a class="dropdown-item" href="#" onclick="reporteCarreras(3,'ELECTRICIDAD INDUSTRIAL')">ELECTRICIDAD INDUSTRIAL </a></li>
-                                <li><a class="dropdown-item" href="#" onclick="reporteCarreras(4,'INDUSTRIA TEXTIL Y CONFECCIÓN')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>
-                                <li><a class="dropdown-item" href="#" onclick="reporteCarreras(5,'MECÁNICA AUTOMOTRÍZ')">MECÁNICA AUTOMOTRÍZ  </a></li>
-                                <li><a class="dropdown-item" href="#" onclick="reporteCarreras(6,'REDES DE GAS Y SOLDADURA EN DUCTOS')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-success dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS </a></li>
+                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(2,'CONSTRUCCIÓN CIVIL')">CONSTRUCCIÓN CIVIL </a></li>
+                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(3,'ELECTRICIDAD INDUSTRIAL')">ELECTRICIDAD INDUSTRIAL </a></li>
+                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(4,'INDUSTRIA TEXTIL Y CONFECCIÓN')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>              
+                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(5,'MECÁNICA AUTOMOTRÍZ')">MECÁNICA AUTOMOTRÍZ  </a></li>
+                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(6,'REDES DE GAS Y SOLDADURA INDUSTRIAL')">REDES DE GAS Y SOLDADURA INDUSTRIAL  </a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button"  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-success dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
+
                             <span class="fas fa-print" style="padding-right:10px;"></span>Estudiantes
                         </button>
                             <ul class="dropdown-menu">
@@ -458,10 +497,9 @@
         </div>
     </div>
 
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="js/main.js?5"></script>
+
 </body>
 
 </html>

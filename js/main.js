@@ -1,41 +1,102 @@
 const URL = "https://apirestitpm.itpm.edu.bo/api/index.php/";
 
 let updateRange = "";
-
-
+document.querySelector('body').onload =  ()=>{
+  if(localStorage.getItem("data") != null){
+    let dataSho = JSON.parse(localStorage.getItem("data"));
+    let nombre, pass;
+    dataSho.map(data=>{nombre = data.nombre; pass = data.password});
+    console.log(dataSho);
+    console.log(nombre, pass);
+    loginDatos(nombre, pass);
+  }
+}
 //Inicio de sesión
 const formularioLogin = document.getElementById("login-form");
-formularioLogin.addEventListener("submit", function(e) {
-    e.preventDefault();
-    let data = new FormData(formularioLogin);
-    var pae = false;
-    //peticion https
-    fetch(URL + "Usuario/loginUsuario", { method: 'POST', body: data })
-        .then(json => json.json())
-        .then(pack => {
-            console.log(pack);
-            if (pae === pack.err) {
-                if (pack.usuario.privilegio === '0') {
-                    document.getElementById('btnNuevoPriv').style.display = "block";
-                }
-                document.getElementById("login").style.display = "none";
-                document.getElementById("contenido").style.display = "block";
-                document.getElementById('usuario').style.display = "block";
-                document.getElementById('closeSesion').style.display = "block";
-                capturaUsu();
-                console.log(pack.usuario.privilegio);
-            } else {
-                document.getElementById('errorSesion').style.display = "block";
-            }
 
-            document.getElementById("login-form").reset();
-        });
+formularioLogin.addEventListener("submit",  function(e){
+    e.preventDefault();  
+    let nombre = document.getElementsByName("nombre")[0].value;
+    let pass = document.getElementsByName("password")[0].value;
+    //peticion https
+    loginDatos(nombre, pass);
 })
 
-function cerrarSesion() {
-    window.location.reload();
+//iniciar shareprefernces
+const sharePrefe = (pack)=>{
+  let password= pack.usuario.password;
+  let nombre = pack.usuario.nombre;
+  let dataName = {
+    password,nombre
+  }
+  if(localStorage.getItem("data") === null){
+    let base = [];
+    base.push(dataName);
+    localStorage.setItem("data", JSON.stringify(base));
+  }
 }
 
+//https login
+const loginDatos = (nombre, pass)=>{
+  let data = new FormData();
+  let estadoChe = document.getElementById("flexCheckDefault").checked;
+  data.append("nombre", nombre);
+  data.append("password", pass);
+  var pae = false;
+  fetch(URL + "Usuario/loginUsuario", {method: 'POST', body: data})
+      .then(json=>json.json())
+      .then(pack=>{
+        console.log(pack);
+        if(pae === pack.err){
+          console.log(estadoChe);
+          if(estadoChe === true){
+            sharePrefe(pack);
+          }
+          if(pack.usuario.privilegio === '0'){
+            document.getElementById('btnNuevoPriv').style.display="block";
+          }
+          document.getElementById("login").style.display="none";
+          document.getElementById("contenido").style.display="block";
+          document.getElementById('usuario').style.display="block";
+          document.getElementById('closeSesion').style.display="block";
+          capturaUsu();
+          console.log(pack.usuario.privilegio);
+        } else{
+          document.getElementById('errorSesion').style.display="block";
+        }
+        document.getElementById("login-form").reset();  
+      });
+}
+
+function cerrarSesion(){
+  localStorage.removeItem("data")
+  window.location.reload();
+
+
+}
+
+// busqueda de nota http
+const formularioBusNota = document.getElementById("busNota-form");
+formularioBusNota.addEventListener("submit", function(e){
+    e.preventDefault();
+    let data = new FormData(formularioBusNota);
+    var pae = false;
+    //peticion https
+    fetch(URL + "Notas/filtroNotaAlumnos", {method: 'POST', body: data})
+      .then(json=>json.json())
+      .then(pack=>{
+        let cuerpo;
+        pack.map(cue=>{
+          cuerpo = `<h2> ${cue.nombreEs} ${cue.paterno} ${cue.materno} </h2><hr>Su nota Obtenida: ${cue.nota}
+          <hr>`; 
+          cuerpo += cue.nota > cue.rango?`<h4>Habilitado para la inscripcion</h4>`:`<h4 class="alert alert-danger">NO Habilitado para la inscripcion</h4>`;
+        })
+          document.getElementById('mensajeNota').style.display="block";
+          document.getElementById('mensajeNota').innerHTML=cuerpo;
+
+        document.getElementById("busNota-form").reset();  
+      });
+})
 //Registro de nuevo postulante
 const formularioRegistro = document.getElementById("Registro-form");
 formularioRegistro.addEventListener("submit", function(e) {
@@ -185,6 +246,8 @@ formularioEditar.addEventListener("submit", function(e) {
 //peticion de listar estudoantes
 
 //Total por carreras
+
+
 const filtroTotalCarreras = (id, inst) => {
         let data = new FormData();
         data.append("filtroCarrera", id);
@@ -207,6 +270,7 @@ const filtroTotalCarreras = (id, inst) => {
                 <a href="#" class="btn btn-danger" onclick="cerrarTotal()">Cerrar</a>
                 
             <hr>
+
 
             
             <table class="table">
@@ -283,7 +347,12 @@ const filtroTotalCarreras = (id, inst) => {
                 function buscar() {
                     document.getElementById('Contenido-Buscar').style.display = "block";
                 }
-
+//funcion para visualizar el formulario de busqueda de nota
+const formularioBusqueda=()=>{
+  document.getElementById("login").style.display="none"
+  document.getElementById("frmBusquedaNota").style.display="block"
+  }
+  
                 //Cierra cancela la ventana para buscar
                 function cierraBuscar() {
                     document.getElementById('Contenido-Buscar').style.display = "none";
@@ -312,3 +381,4 @@ const filtroTotalCarreras = (id, inst) => {
                 const loginEstudiantes = () => {
 
                 }
+

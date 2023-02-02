@@ -3,46 +3,9 @@
     src: url(../assets/fonts/Montserrat-Regular.ttf);
 }
 
-@font-face {
-    font-family: 'Sweet';
-    src: url(../assets/fonts/Sweetmilk.ttf);
+body{
+    margin-bottom: 20px;
 }
-
-@font-face {
-    font-family: 'Fluo';
-    src: url(../assets/fonts/Fluo\ Gums.ttf);
-}
-
-@font-face {
-    font-family: 'Arco';
-    src: url(../assets/fonts/ARCO.ttf);
-}
-
-@font-face {
-    font-family: 'Sunday';
-    src: url(../assets/fonts/Sunday\ Morning\ ttf.ttf);
-}
-
-.barra {
-    background-color: rgba(19, 13, 41, 0.911);
-}
-
-.rowCamp {
-    margin-top: 400px;
-}
-
-.post {
-    font-family: 'Fluo';
-    margin-top: 68px;
-}
-
-.ingresar {
-    font-family: 'Sunday';
-    font-size: 20px;
-    color: brown;
-    border-radius: 15px;
-}
-
 
 /*Cuadro de inicio de sesión*/
 
@@ -94,19 +57,11 @@
 }
 
 
-/*cabeza*/
-
-.cuerpo {
-    /*background-color: rgb(59, 59, 59); */
+.fondo{
+  
     background-image: url('../assets/img/fondoITBM.jpg');
-    margin-top: -50px;
-    height: 600px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    /* background-color: rgb(49, 49, 49);  */
-    /* background-image: url('/assets/img/fondo.png');
-    background-size:cover; */
+    background-size:cover; 
+    height: 800px;
 }
 
 
