@@ -31,6 +31,29 @@ formularioLogin.addEventListener("submit", function(e){
       });
 })
 
+// busqueda de nota http
+const formularioBusNota = document.getElementById("busNota-form");
+formularioBusNota.addEventListener("submit", function(e){
+    e.preventDefault();
+    let data = new FormData(formularioBusNota);
+    var pae = false;
+    //peticion https
+    fetch(URL + "Notas/filtroNotaAlumnos", {method: 'POST', body: data})
+      .then(json=>json.json())
+      .then(pack=>{
+        let cuerpo;
+        pack.map(cue=>{
+          cuerpo = `<h2> ${cue.nombreEs} ${cue.paterno} ${cue.materno} </h2><hr>Su nota Obtenida: ${cue.nota}
+          <hr>`; 
+          cuerpo += cue.nota > cue.rango?`<h4>Habilitado para la inscripcion</h4>`:`<h4 class="alert alert-danger">NO Habilitado para la inscripcion</h4>`;
+        })
+          document.getElementById('mensajeNota').style.display="block";
+          document.getElementById('mensajeNota').innerHTML=cuerpo;
+
+        document.getElementById("busNota-form").reset();  
+      });
+})
+
 function cerrarSesion(){
   window.location.reload();
 }
@@ -232,5 +255,14 @@ function BorrarDatos(){
 
 //funcion para iniciar secion de estudiantes
 const loginEstudiantes=()=>{
-
 }
+//funcion para visualizar el formulario de busqueda de nota
+const formularioBusqueda=()=>{
+document.getElementById("login").style.display="none"
+document.getElementById("frmBusquedaNota").style.display="block"
+}
+//funcion para visualizar el formulario de busqueda de nota
+const formularioBusqueda2=()=>{
+  document.getElementById("login").style.display="none"
+  document.getElementById("frmBusquedaNota").style.display="block"
+  }

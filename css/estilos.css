@@ -1,6 +1,7 @@
 
 @font-face {
     font-family: 'sesion';
+
     src: url(../assets/fonts/Montserrat-Regular.ttf);
 }
 
@@ -32,10 +33,11 @@
 }
 
 .fondo{
-    background-color: rgb(59, 59, 59); 
+    /*background-color: rgb(59, 59, 59); 
     /* background-color: rgb(49, 49, 49);  */
-    /* background-image: url('/assets/img/fondo.png');
-    background-size:cover; */
+    background-image: url('../assets/img/fondoITBM.jpg');
+    background-size:cover; 
+    height: 800px;
 }
 /*Botones demas*/
 .anchobtn{
@@ -55,3 +57,4 @@
         width: 400px;
     }
 }
+

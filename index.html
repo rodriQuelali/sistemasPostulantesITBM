@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="http://www.itboliviamar.edu.bo/"><span class="fas fa-globe-americas"></span> Página web</a>
                 </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-info"  onclick="formularioBusqueda()" >Consultar mi Nota</button>
+                </li>
                 <li class="nav-item" style="display: none;" id="closeSesion">
                     <a class="nav-link" href="#" onclick="cerrarSesion()"><span class="fas fa-door-closed"></span> Cerrar sesión</a>
                 </li>
@@ -62,6 +65,25 @@
             </form >
         </div>
 
+          <!-- FORMULARIO DE BUSQUEDA DE NOTA-->
+          <div class="container text-center sesion" id="frmBusquedaNota" style="padding-bottom:15px; display:none;"> 
+            <form id="busNota-form">
+                    <img class="mb-4" src="assets/img/usu.png" alt="" width="120" height="120">
+                    <p class="mt-5 mb-3 text-white" >BUSQUEDA DE NOTA</p>
+                <div class="form-floating mb-3">
+                    <input type="text" name="txtFiltroNota" class="form-control rounded-5 campsesion" id="" placeholder="name@example.com">
+                    <label for="floatingInput">INTRODUCIR NUMERO DE CARNET</label>
+                </div>
+                    <button class="w-100 btn btn-lg btn-primary"   type="submit">CONSULTAR</button>
+                    <p class="mt-5 mb-3 text-white" >© ITBM 2022</p>
+                <div class="card footer"style="padding-bottom:0px ;">
+                    <div id="mensajeNota" class="alert alert-success alert-dismissible fade show" style="display: none;" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </form >
+        </div>
+        
         <!-- OPCIONES -->
 
         <div  class="container text-center" style="margin-top:50px; display: none;" id="contenido">
@@ -69,7 +91,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div id="btnNuevoPriv" style="display: none;" >
-                        <button class="btn btn-primary anchobtn"  data-bs-toggle="modal" data-bs-target="#Registro" ><span class="fa fa-plus" style="padding-right:10px; "></span>  Nuevo</button>
+                        <button          type="button" class="btn btn-info"            data-bs-toggle="modal" data-bs-target="#Registro" ><span class="fa fa-plus" style="padding-right:10px; "></span>  Nuevo</button>
                     </div>
                     <button class="btn btn-primary anchobtn"  data-bs-toggle="modal" data-bs-target="#Rango" ><span class="fa fa-plus" style="padding-right:10px; "></span>  Rango</button>
                     <button class="btn btn-primary anchobtn" id="btnBuscar" onclick="buscar(), cerrarTotal()"><span class="fas fa-search" style="padding-right:10px;"></span>   Buscar</button>
