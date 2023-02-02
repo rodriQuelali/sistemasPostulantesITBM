@@ -1,60 +1,100 @@
-
 @font-face {
     font-family: 'sesion';
     src: url(../assets/fonts/Montserrat-Regular.ttf);
 }
+
 body{
     margin-bottom: 20px;
 }
-/*Cuadro de inicio de sesión*/
-.sesion{
-    background-color: rgba(37, 37, 37, 0.822);
-    border-radius: 5px;
-    font-family:'sesion';
 
+/*Cuadro de inicio de sesión*/
+
+.sesion {
+    background-color: rgba(37, 37, 37, 0.900);
+    /*border: 2px solid rgba(255, 255, 255, 0.5);*/
+    border-radius: 5px;
+    font-family: 'Sweet';
+    font-size: 20px;
 }
+
+
+/*Color fondo*/
+
+.color-fondo {
+    background-color: rgba(78, 81, 102, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+
 /*boton iniciar sesion y campos*/
-.btnsesion{
+
+.btnsesion {
     border: none;
     border-radius: 15px;
+    /* background-color: rgba(255, 255, 255, 0.8) */
 }
-.btnsesion:hover{
+
+.btnsesion:hover {
     border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.)
 }
+
+
 /*campos de inicio de sesión*/
-.campsesion{
+
+.campsesion {
     border: none;
     border-radius: 15px;
-    background-color:rgba(255, 255, 255, 0.863);
+    background-color: rgba(255, 255, 255, 0.863);
 }
+
 
 /*ancho del total*/
-.total{
+
+.total {
     width: 500px;
 }
 
+
 .fondo{
-    background-color: rgb(59, 59, 59); 
-    /* background-color: rgb(49, 49, 49);  
+    /*background-color: rgb(59, 59, 59); 
+    /* background-color: rgb(49, 49, 49);  */
     background-image: url('../assets/img/fondoITBM.jpg');
     background-size:cover; 
     height: 800px;*/
 }
+
+
 /*Botones demas*/
-.anchobtn{
+
+.fondo {
+    background-color: rgba(43, 46, 74, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+.anchobtn {
     width: 150px;
-    margin:8px;
+    margin: 8px;
 }
 
+.btn-primary {
+    background-color: rgba(18, 8, 56, 0.863);
+}
 
-
-@media (min-width:1000px){
-    .sesion{
+@media (min-width:1000px) {
+    .sesion {
         width: 400px;
     }
 }
-@media (min-width:768px){
-    .sesion{
+
+@media (min-width:768px) {
+    .sesion {
         width: 400px;
     }
+}
+
+.cuerpo .color-fondo #login-form {
+    margin-top: 68px;
 }

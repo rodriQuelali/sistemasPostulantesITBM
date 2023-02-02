@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,18 +12,21 @@
     <script src="https://kit.fontawesome.com/22ed8f9c04.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body class="fondo">
 
     <!-- CABECERA -->
 
+
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <div class="container-fluid">
+        <div class="container-fluid barra">
             <a class="navbar-brand" href="#"> <img src="assets/img/itbm.png" alt="" width="40" height="40"> ITBM</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="http://www.itboliviamar.edu.bo/"><span class="fas fa-globe-americas"></span> Página web</a>
                 </li>
@@ -35,15 +39,21 @@
                 <li class="nav-item" style="display: none;" id="usuario">
                     <a  id="nombreUsu" class="nav-link disabled">usuario@gmail.com</a>
                 </li>
+                   
+
                 </ul>
             </div>
         </div>
     </nav>
 
-        <!-- FORMULARIO DE INICIO DE SESION -->
-        <div class="container text-center sesion" id="login" style="padding-bottom:15px; display:block;"> 
-            <form id="login-form">
+
+    <!-- FORMULARIO DE INICIO DE SESION -->
+    <header class="cuerpo">
+        <div class="color-fondo">
+            <div class="container text-center sesion" id="login" style="padding-bottom:15px; display:block;">
+                <form id="login-form">
                     <img class="mb-4" src="assets/img/itbm.png" alt="" width="120" height="120">
+
                     <p class="mt-5 mb-3 text-white" >INGRESAR</p>
                 <div class="form-floating mb-3">
                     <input type="text" name="nombre" class="form-control rounded-5 campsesion" id="floatingInput" placeholder="name@example.com">
@@ -62,16 +72,17 @@
                       </div>
                 </div>
                     <button class="w-100 btn btn-lg btn-primary btnsesion"  type="submit">Iniciar sesión</button>
-
-                    <p class="mt-5 mb-3 text-white" >© ITBM 2022</p>
-                <div class="card footer"style="padding-bottom:0px ;">
-                    <div id="errorSesion" class="alert alert-danger alert-dismissible fade show" style="display: none;" role="alert">
-                        <strong>¡Intente de nuevo!</strong> Correo o contraseña incorrectos.
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    
+                    <p class="mt-5 mb-3 text-white">©ITBM 2023 </p>
+                    <div class="card footer" style="padding-bottom:0px ;">
+                        <div id="errorSesion" class="alert alert-danger alert-dismissible fade show" style="display: none;" role="alert">
+                            <strong>¡Intente de nuevo!</strong> Correo o contraseña incorrectos.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     </div>
-                </div>
-            </form >
-        </div>
+                </form>
+            </div>
+
 
          <!-- FORMULARIO DE BUSQUEDA DE NOTA-->
          <div class="container text-center sesion" id="frmBusquedaNota" style="padding-bottom:15px; display:none;"> 
@@ -92,35 +103,40 @@
             </form >
         </div>
 
-        <!-- OPCIONES -->
+      
 
-        <div  class="container text-center" style="margin-top:50px; display: none;" id="contenido">
-                <h1 class="page-header text-center text-white" style="margin-bottom:50px;">POSTULANTES AL ITBM</h1>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="btnNuevoPriv" style="display: none;" >
-                        <button class="btn btn-primary anchobtn"  data-bs-toggle="modal" data-bs-target="#Registro" ><span class="fa fa-plus" style="padding-right:10px; "></span>  Nuevo</button>
-                    </div>
-                    <button class="btn btn-primary anchobtn"  data-bs-toggle="modal" data-bs-target="#Rango" ><span class="fa fa-plus" style="padding-right:10px; "></span>  Rango</button>
-                    <button class="btn btn-primary anchobtn" id="btnBuscar" onclick="buscar(), cerrarTotal()"><span class="fas fa-search" style="padding-right:10px;"></span>   Buscar</button>
-                    <button class="btn btn-primary anchobtn" id="btntotal" onclick="capturaTotal('Total a nivel instituto'),cierraBuscar()"><span class="fas fa-poll" style="padding-right:10px;"></span>  Total</button>
-                    <div class="btn-group">
-                        <button type="button"  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-primary dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
+
+            <!-- OPCIONES -->
+
+            <div class="container text-center" style="margin-top:20px; display: none;" id="contenido">
+                <h1 class="page-header text-center text-white post">POSTULANTES ITBM 2023</h1>
+                <div class="rowCamp">
+                    <div class="col-sm-12">
+                        <div id="btnNuevoPriv" style="display: none;">
+                            <button class="btn btn-outline-light anchobtn" data-bs-toggle="modal" data-bs-target="#Registro"><span class="fa fa-plus" style="padding-right:10px; "></span>  Nuevo Estudiante</button>
+                            <button class="btn btn-outline-light anchobtn" data-bs-toggle="modal" data-bs-target="#RegistroCarrera"><span class="fa fa-plus" style="padding-right:10px; "></span>  Agregar Carrera</button>
+                        </div>
+                        <button class="btn btn-outline-light anchobtn" data-bs-toggle="modal" data-bs-target="#Rango"><span class="fa fa-plus" style="padding-right:10px; "></span>  Rango</button>
+                        <button class="btn btn-outline-light anchobtn" id="btnBuscar" onclick="buscar(), cerrarTotal()"><span class="fas fa-search" style="padding-right:10px;"></span>   Buscar</button>
+                        <button class="btn btn-outline-light anchobtn" id="btntotal" onclick="capturaTotal('Total a nivel instituto'),cierraBuscar()"><span class="fas fa-poll" style="padding-right:10px;"></span>  Total</button>
+                        <div class="btn-group">
+                            <button type="button" onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-light dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="fas fa-university" style="padding-right:10px;"></span>Carreras
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(1,'Total Sistemas Informaticos')">SISTEMAS INFORMÁTICOS  </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(2,'Total Construcción Civil')">CONSTRUCCIÓN CIVIL </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(3,'Total Electricidad Industrial')">ELECTRICIDAD INDUSTRIAL </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(4,'Total Industria Textil y confección')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>              
-                            <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(5,'Total Mecánica Automotríz')">MECÁNICA AUTOMOTRÍZ  </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(6,'Total Redes de gas y Soldadura en ductos')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
-                        </ul>
-                    </div>
-                    <div class="btn-group">
-                        <button type="button"  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-success dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(1,'Total Sistemas Informaticos')">SISTEMAS INFORMÁTICOS  </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(2,'Total Construcción Civil')">CONSTRUCCIÓN CIVIL </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(3,'Total Electricidad Industrial')">ELECTRICIDAD INDUSTRIAL </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(4,'Total Industria Textil y confección')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(5,'Total Mecánica Automotríz')">MECÁNICA AUTOMOTRÍZ  </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(6,'Total Redes de gas y Soldadura en ductos')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-success dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="fas fa-print" style="padding-right:10px;"></span>Imprimir
                         </button>
+
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" onclick="reporteCarreras(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS </a></li>
                             <li><a class="dropdown-item" href="#" onclick="reporteCarreras(2,'CONSTRUCCIÓN CIVIL')">CONSTRUCCIÓN CIVIL </a></li>
@@ -132,33 +148,37 @@
                     </div>
                     <div class="btn-group">
                         <button type="button"  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-success dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
+
                             <span class="fas fa-print" style="padding-right:10px;"></span>Estudiantes
                         </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(2,'CONSTRUCCIÓN CIVIL')">CONSTRUCCIÓN CIVIL </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(3,'ELECTRICIDAD INDUSTRIAL')">ELECTRICIDAD INDUSTRIAL </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(4,'INDUSTRIA TEXTIL Y CONFECCIÓN')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>              
-                            <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(5,'MECÁNICA AUTOMOTRÍZ')">MECÁNICA AUTOMOTRÍZ  </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(6,'REDES DE GAS Y SOLDADURA EN DUCTOS')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
-                        </ul>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(2,'CONSTRUCCIÓN CIVIL')">CONSTRUCCIÓN CIVIL </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(3,'ELECTRICIDAD INDUSTRIAL')">ELECTRICIDAD INDUSTRIAL </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(4,'INDUSTRIA TEXTIL Y CONFECCIÓN')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(5,'MECÁNICA AUTOMOTRÍZ')">MECÁNICA AUTOMOTRÍZ  </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(6,'REDES DE GAS Y SOLDADURA EN DUCTOS')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>  
-                    
-            </div>
-        </div>
 
-        <!-- VENTANA MODAL REGISTRO DE POSTULANTE -->
-        <div class="modal fade" id="Registro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <center><h4 class="modal-title" id="myModalLabel">Agregar postulante</h4></center>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </div>
+            </div>
+    </header>
+
+    <!-- VENTANA MODAL REGISTRO DE POSTULANTE -->
+    <div class="modal fade" id="Registro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <center>
+                        <h4 class="modal-title" id="myModalLabel">Agregar postulante</h4>
+                    </center>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
-                        
-                    </div>
-                
+
+                </div>
+
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form method="POST" action="" id="Registro-form">
@@ -177,7 +197,7 @@
                                     <input type="text" class="form-control" name="txtCi" required>
                                 </div>
                             </div>
-          
+
                             <div class="row form-group" style="margin-top:15px;">
                                 <div class="col-sm-2">
                                     <label class="control-label">Paterno:</label>
@@ -185,8 +205,8 @@
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="txtPaterno" required>
                                 </div>
-                            </div> 
-          
+                            </div>
+
                             <div class="row form-group" style="margin-top:15px;">
                                 <div class="col-sm-2">
                                     <label class="control-label">Materno:</label>
@@ -194,8 +214,8 @@
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="txtMaterno" required>
                                 </div>
-                            </div>  
-          
+                            </div>
+
                             <div class="row form-group" style="margin-top:15px;">
                                 <div class="col-sm-2">
                                     <label class="control-label">Celular:</label>
@@ -203,7 +223,7 @@
                                 <div class="col-sm-4">
                                     <input type="tel" class="form-control" name="txtTelefono" required>
                                 </div>
-                                
+
                                 <div class="col-sm-2">
                                     <label class="control-label">Edad:</label>
                                 </div>
@@ -211,19 +231,19 @@
                                     <input type="text" class="form-control" name="txtEdad" required>
                                 </div>
                             </div>
-          
+
                             <div class="row form-group" style="margin-top:15px;">
                                 <div class="col-sm-2">
                                     <label class="control-label">Género:</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <select  name="txtSexo" class="form-control" required>
+                                    <select name="txtSexo" class="form-control" required>
                                         <option value="">--Elegir--</option>
                                         <option value="MASCULINO">MASCULINO</option>
                                         <option value="FEMENINO">FEMENINO</option>
                                     </select>
-                                </div> 
-                            
+                                </div>
+
                                 <div class="col-sm-2" style="margin-top:15px;">
                                     <label class="control-label">Año de egreso:</label>
                                 </div>
@@ -231,8 +251,8 @@
                                     <input type="text" class="form-control" name="txtGestion" required>
                                 </div>
                             </div>
-          
-          
+
+
                             <div class="row form-group" style="margin-top:15px;">
                                 <div class="col-sm-2">
                                     <label class="control-label">Dirección:</label>
@@ -241,20 +261,14 @@
                                     <input type="text" class="form-control" name="txtDireccion" required>
                                 </div>
                             </div>
-          
+                            <!--CARRERAS-->
                             <div class="row form-group" style="margin-top:15px;">
-                                <div class="col-sm-2">
-                                    <label class="control-label">Carrera:</label>
+                                <div class=" d-grid gap-2 ">
+                                    <input type="button" class="btn btn-outline-dark" id="btnGrado" value="Carreras" />
                                 </div>
-                                <div class="col-sm-10">
-                                    <select  name="txtGrado" class="form-control" required>
-                                        <option value="">-- Elegir --</option>
-                                        <option value="1">SISTEMAS INFORMÁTICOS</option>
-                                        <option value="2">CONSTRUCCIÓN CIVIL</option>
-                                        <option value="3">ELECTRICIDAD INDUSTRIAL</option>
-                                        <option value="4">INDUSTRIA TEXTIL Y CONFECCIÓN</option>
-                                        <option value="5">MECÁNICA AUTOMOTRÍZ</option>
-                                        <option value="6">REDES DE GAS Y SOLDADURA EN DUCTOS</option>
+                                <div class="d-grid gap-2">
+                                    <select name="txtGrado" style="display: none;" id="txtGrado" class="form-control" required>
+                                        
                                     </select>
                                 </div>
                             </div>
@@ -274,75 +288,133 @@
                                 <div class="col-sm-2">
                                     <label class="control-label">Turno:</label>
                                 </div>
-                                <div class="col-sm-4" >
+                                <div class="col-sm-4">
                                     <select name="txtTurno" class="form-control" required>
                                         <option value="">--Elegir--</option>
                                         <option value="NINGUNO">NINGUNO</option>
                                         <option value="MAÑANA">MAÑANA</option>
                                         <option value="NOCHE">NOCHE</option>
                                     </select>
-                                </div> 
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="BorrarDatos()">  <span class="fa fa-close"></span> Cancelar</button>
-                                <button type="submit" class="btn btn-primary" ><span class="fa fa-save"></span> Guardar</button>
+                                <button type="submit" class="btn btn-primary"><span class="fa fa-save"></span> Guardar</button>
                             </div>
 
                         </form>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
+    </div>
 
-        <!-- TOTAL DE POSTULANTES -->
-        <div class="container text-center">
-            <div class="card" id="Contenedor-Total" style="margin-top:30px; display: none;">
-                <hr>
-            <a href="#" class="btn btn-danger" onclick="cerrarTotal()">Cerrar</a>
-            </div>
-            
-        </div>
-
-        <!-- VENTANA PARA BUSQUEDA -->
-        <div class="container text-center" style="margin-top:30px; display: none;" id="Contenido-Buscar">
-            <div class="card" id="Contenedor-Busqueda" >
-                <div class="card-header">
-                    Búsqueda por CI o Nombre.
-                </div>
-                <div class="card-body">
-                    <div class="input-group flex-nowrap" style="margin-bottom: 20px;">
-                        <span class="input-group-text" id="addon-wrapping"> <i class="fas fa-search"></i> </span>
-                        <input type="text" id="txtCiFiltro" name="txtCiFiltro" class="form-control" placeholder="CI o nombre" aria-label="Username" aria-describedby="addon-wrapping">
-                    </div>
-                    <button class="btn btn-success" id="filtro-Btn">Buscar</button>
-                    <a href="#" class="btn btn-danger" onclick="cierraBuscar()">Cancelar</a>
-
-                    <div id="resultado-Busqueda">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODAL VENTANA PARA EDITAR A POSTULANTE -->
-        <div class="modal fade" id="Editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <center><h4 class="modal-title" id="myModalLabel">Editar postulante</h4></center>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+    <!-- VENTANA MODAL REGISTRO DE CARRERA -->
+    <div class="modal fade" id="RegistroCarrera" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <center>
+                        <h4 class="modal-title" id="myModalLabel">Agregar Carrera</h4>
+                    </center>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
-                        
+
+                </div>
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form method="POST" action="" id="Registro-form-Carrera">
+                            <div class="row form-group">
+                                <div class="col-sm-2">
+                                    <label class="control-label">Nombre:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" name="txtNombreGrado" required>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label class="control-label">Estado:</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select name="txtEstado" class="form-control" required>
+                                        <option value="">--Elegir--</option>
+                                        <option value="SI">ACTIVO</option>
+                                        <option value="NO">INACTIVO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row form-group" style="margin-top:15px;">
+                                <div class="col-sm-4">
+                                    <label class="control-label">Minima nota de aprobacion:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="txtRango" required>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="BorrarDatos()">  <span class="fa fa-close"></span> Cancelar</button>
+                                <button type="submit" class="btn btn-primary"><span class="fa fa-save"></span> Guardar</button>
+                            </div>
+
+                        </form>
                     </div>
-                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOTAL DE POSTULANTES -->
+    <div class="container text-center">
+        <div class="card" id="Contenedor-Total" style="margin-top:30px; display: none;">
+            <hr>
+            <a href="#" class="btn btn-danger" onclick="cerrarTotal()">Cerrar</a>
+        </div>
+
+    </div>
+
+    <!-- VENTANA PARA BUSQUEDA -->
+    <div class="container text-center" style="margin-top:30px; display: none;" id="Contenido-Buscar">
+        <div class="card" id="Contenedor-Busqueda">
+            <div class="card-header">
+                Búsqueda por CI o Nombre.
+            </div>
+            <div class="card-body">
+                <div class="input-group flex-nowrap" style="margin-bottom: 20px;">
+                    <span class="input-group-text" id="addon-wrapping"> <i class="fas fa-search"></i> </span>
+                    <input type="text" id="txtCiFiltro" name="txtCiFiltro" class="form-control" placeholder="CI o nombre" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+                <button class="btn btn-success" id="filtro-Btn">Buscar</button>
+                <a href="#" class="btn btn-danger" onclick="cierraBuscar()">Cancelar</a>
+
+                <div id="resultado-Busqueda">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL VENTANA PARA EDITAR A POSTULANTE -->
+    <div class="modal fade" id="Editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <center>
+                        <h4 class="modal-title" id="myModalLabel">Editar postulante</h4>
+                    </center>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+
+                </div>
+
                 <div class="modal-body">
                     <div class="container-fluid">
                         <form method="POST" action="" id="editar-form">
 
                             <div class="row form-group">
                                 <div class="col-sm-5">
-                                    <input type="hidden" class="form-control" name="id" id="editar-text"  required>
+                                    <input type="hidden" class="form-control" name="id" id="editar-text" required>
                                 </div>
                             </div>
 
@@ -352,79 +424,82 @@
                                 </div>
                                 <div class="col-sm-5">
                                     <input type="number" class="form-control" name="nota" required>
-                                </div>                           
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="BorrarDatos()">  <span class="fa fa-close"></span> Cancelar</button>
-                                <button type="submit" class="btn btn-success" ><span class="fa fa-save"></span> Guardar</button>
+                                <button type="submit" class="btn btn-success"><span class="fa fa-save"></span> Guardar</button>
                             </div>
 
                         </form>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
+    </div>
 
-        <!-- MODAL PARA RANGO DE NOTAS -->
+    <!-- MODAL PARA RANGO DE NOTAS -->
 
-        <div class="modal fade" id="Rango" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <center><h4 class="modal-title" id="myModalLabel">Editar postulante</h4></center>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+    <div class="modal fade" id="Rango" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <center>
+                        <h4 class="modal-title" id="myModalLabel">Editar postulante</h4>
+                    </center>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
-                        
-                    </div>
-                
+
+                </div>
+
                 <div class="modal-body">
                     <div class="container-fluid">
-                            <div class="row form-group">
-                                <div class="col-sm-5">
-                                    <input type="hidden" class="form-control" name="id" id="editar-text"  required>
-                                </div>
+                        <div class="row form-group">
+                            <div class="col-sm-5">
+                                <input type="hidden" class="form-control" name="id" id="editar-text" required>
                             </div>
+                        </div>
 
-                            <div class="container-fluid">
-                                <div class="btn-group">
-                                    <button type="button"  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-primary dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="container-fluid">
+                            <div class="btn-group">
+                                <button type="button" onclick="cierraBuscar(), cerrarTotal()" class="btn btn-primary dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
                                         Carreras
                                     </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#" onclick="editarRango(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS  </a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="editarRango(2,'CONSTRUCCIÓN CIVIL')">CONSTRUCCIÓN CIVIL </a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="editarRango(3,'ELECTRICIDAD INDUSTRIAL')">ELECTRICIDAD INDUSTRIAL </a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="editarRango(4,'INDUSTRIA TEXTIL Y CONFECCIÓN')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>              
-                                        <li><a class="dropdown-item" href="#" onclick="editarRango(5,'MECÁNICA AUTOMOTRÍZ')">MECÁNICA AUTOMOTRÍZ  </a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="editarRango(6,'REDES DE GAS Y SOLDADURA EN DUCTOS')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
-                                    </ul>
-                                </div>
-                                <div id="cuerpoCarrera" class="row form-group" style="margin-top:15px; margin-bottom: 15px;">
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" onclick="editarRango(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS  </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="editarRango(2,'CONSTRUCCIÓN CIVIL')">CONSTRUCCIÓN CIVIL </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="editarRango(3,'ELECTRICIDAD INDUSTRIAL')">ELECTRICIDAD INDUSTRIAL </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="editarRango(4,'INDUSTRIA TEXTIL Y CONFECCIÓN')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="editarRango(5,'MECÁNICA AUTOMOTRÍZ')">MECÁNICA AUTOMOTRÍZ  </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="editarRango(6,'REDES DE GAS Y SOLDADURA EN DUCTOS')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
+                                </ul>
+                            </div>
+                            <div id="cuerpoCarrera" class="row form-group" style="margin-top:15px; margin-bottom: 15px;">
 
+                            </div>
+                            <div class="row form-group" style="margin-top:15px; margin-bottom: 15px;">
+                                <div class="col-sm-2">
+                                    <label class="control-label">Nota mínima:</label>
                                 </div>
-                                <div class="row form-group" style="margin-top:15px; margin-bottom: 15px;">
-                                    <div class="col-sm-2">
-                                        <label class="control-label">Nota mínima:</label>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <input type="number" id="rango" class="form-control" name="rango" required>
-                                    </div>                           
+                                <div class="col-sm-5">
+                                    <input type="number" id="rango" class="form-control" name="rango" required>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="BorrarDatos()">  <span class="fa fa-close"></span> Cancelar</button>
-                                <button type="button" id="guardarRango" class="btn btn-success" ><span class="fa fa-save"></span> Guardar</button>
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-bs-dismiss="modal" onclick="BorrarDatos()">  <span class="fa fa-close"></span> Cancelar</button>
+                            <button type="button" id="guardarRango" class="btn btn-success"><span class="fa fa-save"></span> Guardar</button>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="js/main.js?4"></script>
-</body>
-</html>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/main.js?5"></script>
+
+</body>
+
+</html>
