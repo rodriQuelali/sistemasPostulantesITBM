@@ -244,10 +244,7 @@ formularioEditar.addEventListener("submit", function(e) {
 })
 
 //peticion de listar estudoantes
-
 //Total por carreras
-
-
 const filtroTotalCarreras = (id, inst) => {
         let data = new FormData();
         data.append("filtroCarrera", id);
@@ -269,20 +266,17 @@ const filtroTotalCarreras = (id, inst) => {
                 </div>
                 <a href="#" class="btn btn-danger" onclick="cerrarTotal()">Cerrar</a>
                 
-            <hr>
-
-
-            
+            <hr>          
             <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">N°</th>
-      <th scope="col">NOMBRE</th>
-      <th scope="col">TELÉFONO</th>
-    </tr>
-  </thead>
-  <tbody>
-  `;
+              <thead>
+                <tr>
+                  <th scope="col">N°</th>
+                  <th scope="col">NOMBRE</th>
+                  <th scope="col">TELÉFONO</th>
+                </tr>
+              </thead>
+            <tbody>
+              `;
             pack.cuerpo.map(list => {
                 cuerpo +=`<tr>
                         <th scope="row">${list.n}</th>
@@ -299,37 +293,37 @@ const filtroTotalCarreras = (id, inst) => {
 
                 }
 
-                //Editar rango por carreras
+//Editar rango por carreras
 
-                const editarRango = (id, nombre) => {
-                    updateRange = id;
-                    document.getElementById('cuerpoCarrera').innerHTML = `<h3>${nombre}</h3> `
+const editarRango = (id, nombre) => {
+    updateRange = id;
+    document.getElementById('cuerpoCarrera').innerHTML = `<h3>${nombre}</h3> `
+}
+
+const rangoBtn = document.getElementById('guardarRango'); rangoBtn.onclick = () => {
+    let valorRango = document.getElementById('rango').value;
+
+    console.log(updateRange, valorRango);
+
+    let data = new FormData();
+    data.append("id", updateRange);
+    data.append("rango", valorRango);
+    if (document.getElementById('rango').value != "") {
+        fetch(URL + "Grado/update", { method: 'POST', body: data })
+            .then(json => json.json())
+            .then(pack => {
+                if (pack.estado === 'ok') {
+                    document.getElementById('cuerpoCarrera').innerHTML = "";
+                    document.getElementById('rango').value = "";
+                    alert('Rango de nota actualizado');
+                } else {
+                    alert('No se editó el rango de nota');
                 }
-
-                const rangoBtn = document.getElementById('guardarRango'); rangoBtn.onclick = () => {
-                    let valorRango = document.getElementById('rango').value;
-
-                    console.log(updateRange, valorRango);
-
-                    let data = new FormData();
-                    data.append("id", updateRange);
-                    data.append("rango", valorRango);
-                    if (document.getElementById('rango').value != "") {
-                        fetch(URL + "Grado/update", { method: 'POST', body: data })
-                            .then(json => json.json())
-                            .then(pack => {
-                                if (pack.estado === 'ok') {
-                                    document.getElementById('cuerpoCarrera').innerHTML = "";
-                                    document.getElementById('rango').value = "";
-                                    alert('Rango de nota actualizado');
-                                } else {
-                                    alert('No se editó el rango de nota');
-                                }
-                            });
-                    } else {
-                        alert('Es obligatorio llenar el campo');
-                    }
-                }
+            });
+    } else {
+        alert('Es obligatorio llenar el campo');
+    }
+}
 
 //Reporte por carreras
 const reporteCarreras = (id, inst) => {
