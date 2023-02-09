@@ -27,20 +27,21 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
 
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="http://www.itboliviamar.edu.bo/"><span class="fas fa-globe-americas"></span> Página web</a>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-info"  onclick="formularioBusqueda()" >Consultar mi Nota</button>
-                </li>
-                <li class="nav-item" style="display: none;" id="closeSesion">
-                    <a class="nav-link" href="#" onclick="cerrarSesion()"><span class="fas fa-door-closed"></span> Cerrar sesión</a>
-                </li>
-                <li class="nav-item" style="display: none;" id="usuario">
-                    <a  id="nombreUsu" class="nav-link disabled">usuario@gmail.com</a>
-                </li>
-                   
-
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://www.itboliviamar.edu.bo/"><span class="fas fa-globe-americas"></span> Página web</a>
+                    </li>
+                    <li class="nav-item" id="li-BusNo">
+                        <button type="button" class="btn btn-info"  onclick="formularioBusqueda()" >Consultar mi Nota</button>
+                    </li>
+                    <li class="nav-item" id="li-Login" style="display: none;">
+                        <button type="button" class="btn btn-info"  onclick="liLogin()" >Inicio de sesion</button>
+                    </li>
+                    <li class="nav-item" style="display: none;" id="closeSesion">
+                        <a class="nav-link" href="#" onclick="cerrarSesion()"><span class="fas fa-door-closed"></span> Cerrar sesión</a>
+                    </li>
+                    <li class="nav-item" style="display: none;" id="usuario">
+                        <a  id="nombreUsu" class="nav-link disabled">usuario@gmail.com</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -73,7 +74,8 @@
                 </div>
                     <button class="w-100 btn btn-lg btn-primary btnsesion"  type="submit">Iniciar sesión</button>
                     
-                    <p class="mt-5 mb-3 text-white">©ITBM 2023 </p>
+                    <p class="mt-5 mb-3 text-white">©ITBM 2023 v.0.1.1</p>
+                    <p class="mt-2 mb-2 text-white">developer</p>
                     <div class="card footer" style="padding-bottom:0px ;">
                         <div id="errorSesion" class="alert alert-danger alert-dismissible fade show" style="display: none;" role="alert">
                             <strong>¡Intente de nuevo!</strong> Correo o contraseña incorrectos.
@@ -94,7 +96,8 @@
                     <label for="floatingInput">Introducir su numero de carnet</label>
                 </div>
                     <button class="w-100 btn btn-lg btn-primary"   type="submit">CONSULTAR</button>
-                    <p class="mt-5 mb-3 text-white" >© ITBM 2022</p>
+                    <p class="mt-5 mb-3 text-white">©ITBM 2023 v.0.1.1</p>
+                    <p class="mt-2 mb-2 text-white">developer</p>
                 <div class="card footer"style="padding-bottom:0px ;">
                     <div id="mensajeNota" class="alert alert-success alert-dismissible fade show" style="display: none;" role="alert">
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -116,9 +119,23 @@
                             <button class="btn btn-outline-light anchobtn" data-bs-toggle="modal" data-bs-target="#Registro"><span class="fa fa-plus" style="padding-right:10px; "></span>  Nuevo Estudiante</button>
                             <button class="btn btn-outline-light anchobtn" data-bs-toggle="modal" data-bs-target="#RegistroCarrera"><span class="fa fa-plus" style="padding-right:10px; "></span>  Agregar Carrera</button>
                         </div>
-                        <button class="btn btn-outline-light anchobtn" data-bs-toggle="modal" data-bs-target="#Rango"><span class="fa fa-plus" style="padding-right:10px; "></span>  Rango</button>
-                        <button class="btn btn-outline-light anchobtn" id="btnBuscar" onclick="buscar(), cerrarTotal()"><span class="fas fa-search" style="padding-right:10px;"></span>   Buscar</button>
-                        <button class="btn btn-outline-light anchobtn" id="btntotal" onclick="capturaTotal('Total a nivel instituto'),cierraBuscar()"><span class="fas fa-poll" style="padding-right:10px;"></span>  Total</button>
+                        <hr>
+                        <button class="btn btn-outline-light anchobtn" data-bs-toggle="modal" data-bs-target="#Rango"><span class="fa fa-plus" style="padding-right:10px; "></span>  Rango nota Carrera</button>
+                        <button class="btn btn-outline-light anchobtn" id="btnBuscar" onclick="buscar(), cerrarTotal()"><span class="fas fa-search" style="padding-right:10px;"></span>   Buscar Estudiante</button>
+                        <div class="btn-group">
+                            <button  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-light anchobtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="fas fa-university" style="padding-right:10px;"></span>Nota General</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarrerasNota(1,'Total Sistemas Informaticos')">SISTEMAS INFORMÁTICOS  </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarrerasNota(2,'Total Construcción Civil')">CONSTRUCCIÓN CIVIL </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarrerasNota(3,'Total Electricidad Industrial')">ELECTRICIDAD INDUSTRIAL </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarrerasNota(4,'Total Industria Textil y confección')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarrerasNota(5,'Total Mecánica Automotríz')">MECÁNICA AUTOMOTRÍZ  </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarrerasNota(6,'Total Redes de gas y Soldadura industrial')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <button class="btn btn-outline-light anchobtn" id="btntotal" onclick="capturaTotal('Total a Nivel Instituto'),cierraBuscar()"><span class="fas fa-poll" style="padding-right:10px;"></span>  Total</button>
                         <div class="btn-group">
                             <button type="button" onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-light dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="fas fa-university" style="padding-right:10px;"></span>Carreras
@@ -129,27 +146,15 @@
                                 <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(3,'Total Electricidad Industrial')">ELECTRICIDAD INDUSTRIAL </a></li>
                                 <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(4,'Total Industria Textil y confección')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>
                                 <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(5,'Total Mecánica Automotríz')">MECÁNICA AUTOMOTRÍZ  </a></li>
-                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(6,'Total Redes de gas y Soldadura en ductos')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="filtroTotalCarreras(6,'Total Redes de gas y Soldadura industrial')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
                             </ul>
                         </div>
-                        <div class="btn-group">
-                            <button type="button" onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-success dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="fas fa-print" style="padding-right:10px;"></span>Imprimir
-                        </button>
-
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(2,'CONSTRUCCIÓN CIVIL')">CONSTRUCCIÓN CIVIL </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(3,'ELECTRICIDAD INDUSTRIAL')">ELECTRICIDAD INDUSTRIAL </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(4,'INDUSTRIA TEXTIL Y CONFECCIÓN')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>              
-                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(5,'MECÁNICA AUTOMOTRÍZ')">MECÁNICA AUTOMOTRÍZ  </a></li>
-                            <li><a class="dropdown-item" href="#" onclick="reporteCarreras(6,'REDES DE GAS Y SOLDADURA INDUSTRIAL')">REDES DE GAS Y SOLDADURA INDUSTRIAL  </a></li>
-                        </ul>
+                        
                     </div>
                     <div class="btn-group">
                         <button type="button"  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-success dropdown-toggle anchobtn" data-bs-toggle="dropdown" aria-expanded="false">
 
-                            <span class="fas fa-print" style="padding-right:10px;"></span>Estudiantes
+                            <span class="fas fa-print" style="padding-right:10px;"></span>Habilitados
                         </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(1,'SISTEMAS INFORMÁTICOS')">SISTEMAS INFORMÁTICOS </a></li>
@@ -157,9 +162,12 @@
                                 <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(3,'ELECTRICIDAD INDUSTRIAL')">ELECTRICIDAD INDUSTRIAL </a></li>
                                 <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(4,'INDUSTRIA TEXTIL Y CONFECCIÓN')">INDUSTRIA TEXTIL Y CONFECCIÓN </a></li>
                                 <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(5,'MECÁNICA AUTOMOTRÍZ')">MECÁNICA AUTOMOTRÍZ  </a></li>
-                                <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(6,'REDES DE GAS Y SOLDADURA EN DUCTOS')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="reporteAlumnos(6,'REDES DE GAS Y SOLDADURA INDUSTRIAL')">REDES DE GAS Y SOLDADURA EN DUCTOS  </a></li>
                             </ul>
                         </div>
+                        <hr>
+                        <button class="btn btn-dark anchobtn" id="btnGraph" onclick="capturaTotal('Total a Nivel Instituto'),cierraBuscar()"><span class="fas fa-poll" style="padding-right:10px;"></span>  Grafica de Inscritos</button>
+                        
                     </div>
 
                 </div>
@@ -419,11 +427,28 @@
                             </div>
 
                             <div class="row form-group" style="margin-top:15px; margin-bottom: 15px;">
-                                <div class="col-sm-2">
+                                <div class="col-sm-5">
                                     <label class="control-label">Nota obtenida:</label>
                                 </div>
                                 <div class="col-sm-5">
                                     <input type="number" class="form-control" name="nota" required>
+                                </div>
+                            </div>
+                            <div class="row form-group" style="margin-top:15px; margin-bottom: 15px;">
+                                <div class="col-sm-5">
+                                    <label class="control-label">Como se entero del Instituto:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <select name="txtExtra" class="form-control" id="txtExtra" required>
+                                        <option value="">--Elegir--</option>
+                                        <option value="1">WhattsApp</option>
+                                        <option value="2">Volantes</option>
+                                        <option value="3">Facebook</option>
+                                        <option value="4">Otro medio</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-5" id="OtroMedio-text">
+                                    
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -496,9 +521,27 @@
             </div>
         </div>
     </div>
+    
 
+
+<div id="body-graph" style="display: none;">
+    <figure class="highcharts-figure">
+        <div id="container" class="container"></div>
+        <p class="highcharts-description" style="color: azure;">
+          Grafica de los postulantes, Instituto Tecnologico Bolivia Mar.  
+        </p>
+    </figure>
+</div>
+
+    <!--libreria para las graficas  -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <!-- fin de la libreria -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="js/main.js?5"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
