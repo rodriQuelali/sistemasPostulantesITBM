@@ -123,7 +123,7 @@
                         <button class="btn btn-outline-light anchobtn" data-bs-toggle="modal" data-bs-target="#Rango"><span class="fa fa-plus" style="padding-right:10px; "></span>  Rango nota Carrera</button>
                         <button class="btn btn-outline-light anchobtn" id="btnBuscar" onclick="buscar(), cerrarTotal()"><span class="fas fa-search" style="padding-right:10px;"></span>   Buscar Estudiante</button>
                         <div class="btn-group">
-                            <button  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-light anchobtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button  onclick="cierraBuscar(), cerrarTotal()" class="btn btn-outline-light anchobtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" disabled>
                                 <span class="fas fa-university" style="padding-right:10px;"></span>Nota General</button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#" onclick="filtroTotalCarrerasNota(1,'Total Sistemas Informaticos')">SISTEMAS INFORMÁTICOS  </a></li>
@@ -166,8 +166,8 @@
                             </ul>
                         </div>
                         <hr>
-                        <button class="btn btn-dark anchobtn" id="btnGraph" onclick="capturaTotal('Total a Nivel Instituto'),cierraBuscar()"><span class="fas fa-poll" style="padding-right:10px;"></span>  Grafica de Inscritos</button>
-                        
+                        <button class="btn btn-dark anchobtn" id="btnGraph" onclick="capturaTotal('Total a Nivel Instituto'),cierraBuscar()" disabled><span class="fas fa-poll" style="padding-right:10px;"></span>  Grafica de Inscritos</button>
+                        <button class="btn btn-dark anchobtn" id="btnGraph" onclick="capturaTotal('Total a Nivel Instituto'),cierraBuscar()" disabled><span class="fas fa-poll" style="padding-right:10px;"></span>  Grafica de Medios</button>
                     </div>
 
                 </div>
@@ -540,7 +540,7 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <!-- fin de la libreria -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="js/main.js?5"></script>
+    <script src="js/main.js?6"></script>
     <script src="js/script.js"></script>
 
 </body>

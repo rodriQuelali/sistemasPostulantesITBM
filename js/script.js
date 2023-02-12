@@ -24,9 +24,6 @@ const datoFec = datosF()
 //      console.log(dataAr[0]);   
 // });
 
-
-
-
 // Data retrieved from https://netmarketshare.com
 Highcharts.chart('container', {
     chart: {
