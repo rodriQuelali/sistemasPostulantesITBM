@@ -1,4 +1,4 @@
-const URL = "https://apirestitpm.itpm.edu.bo/api/index.php/";
+const URL = "https://apirestitpm.itpm.edu.bo/apis/index.php/";
 
 
 let updateRange = "";
