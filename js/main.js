@@ -1,4 +1,5 @@
-const URL = "https://apirestitpm.itpm.edu.bo/api/index.php/";
+const URL = "https://apirestitpm.itpm.edu.bo/apis/index.php/";
+
 
 let updateRange = "";
 document.querySelector('body').onload =  ()=>{
@@ -175,6 +176,7 @@ function capturaTotal(inst) {
         .then(json => json.json())
         .then(pack => {
           datosChart = pack;
+         
           //por el momneto cont- para dar la el ID de carrera
           let cont = 1;
             let cuerpo = "";
@@ -188,7 +190,7 @@ function capturaTotal(inst) {
             </div>`
             for (let index = 0; index < pack.carreras.length; index++) {
                 const element = pack.carreras[index].nombre;
-                console.log(element);
+               
                 cuerpo += `<div class="card-header" id="cabeza" style="font-size:1.5rem; font-weight: bold;">${element}</div>
               <div class="card-body">
                   <h5 class="card-title" style="margin-bottom:20px;" id="total">${pack.carreras[index].datos.total} Postulantes </h5> 
