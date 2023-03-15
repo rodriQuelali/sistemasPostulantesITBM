@@ -66,7 +66,7 @@ bttonGraphMedi.onclick =  ()=>{
             type: 'pie'
         },
         title: {
-            text: 'Grafica de inscritos, 2023',
+            text: 'Grafica de Medios de comunicacion, 2023',
             align: 'center'
         },
         tooltip: {
